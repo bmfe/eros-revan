@@ -1,0 +1,47 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
+
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile gradleApi()
+    compile localGroovy()
+    compile 'org.javassist:javassist:3.22.0-GA'
+    compile 'com.android.tools.build:gradle:2.3.3'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group='com.carry'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://localhost:8081/nexus/content/repositories/releases/"){
+                authentication(userName: 'admin', password: 'admin123')
+            }
+            pom.project {
+                artifactId 'eros-gateway'//与下方一致
+                groupId 'eros.gateway'
+                description 'test upload'
+                version='0.0.59'
+                url 'https://github.com/xianlinbox/Toggle'
+            }
+        }
+    }
+}
+
+publish {
+    userOrg = 'erosandroid'
+    repoName='ErosApi'
+    groupId = 'com.benmu.eros'
+    artifactId = 'eros-raven'
+    publishVersion = '0.0.2'
+    desc = 'gradle plugin for transfer WeexSDK'
+    website = 'https://github.com/bmfe/eros-plugin-android-amap'
+}
+
