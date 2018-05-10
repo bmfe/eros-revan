@@ -20,9 +20,9 @@ class JarZipUtil {
                 }
                 String entryName = jarEntry.getName()
                 if (entryName.endsWith('.class')) {
-                    String className = entryName.replace('\\', '.').replace('/', '.')
+                    String className = entryName.replace(File.separator, '.')
                     list.add(className)
-                    String outFileName = destDirPath + "/" + entryName
+                    String outFileName = destDirPath + File.separator + entryName
                     File outFile = new File(outFileName)
                     outFile.getParentFile().mkdirs()
                     InputStream inputStream = jarFile.getInputStream(jarEntry)
@@ -51,8 +51,8 @@ class JarZipUtil {
                 }
                 String entryName = jarEntry.getName()
                 if (entryName.endsWith('.class')) {
-                    String name = entryName.replace('\\', '.').replace('/', '.')
-                    if (name.contains(className)){
+                    String name = entryName.replace(File.separator,'.')
+                    if (name.contains(className)) {
                         return true;
                     }
                     continue
@@ -71,7 +71,7 @@ class JarZipUtil {
         file.eachFileRecurse { File f ->
             String entryName = f.getAbsolutePath().substring(packagePath.length() + 1)
             if (!f.directory) {
-                ZipEntry zipEntry=new ZipEntry(entryName)
+                ZipEntry zipEntry = new ZipEntry(entryName)
                 outputStream.putNextEntry(zipEntry)
                 InputStream inputStream = new FileInputStream(f)
                 outputStream << inputStream
