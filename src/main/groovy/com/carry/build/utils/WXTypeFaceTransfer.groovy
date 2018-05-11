@@ -35,7 +35,6 @@ public class WXTypeFaceTransfer {
 
     void transfer(ClassPool classPool, String path) {
         CtClass ctClass = null;
-        System.out.println("--------loadTypeface----------");
         ctClass = classPool.getCtClass(CLASS_NAME);
         BaseUtils.defrost(ctClass);
         try {

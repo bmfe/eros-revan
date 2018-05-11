@@ -8,10 +8,9 @@ class WXSDKTransferPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
-        System.out.println("------------plugin start----------------")
+        System.out.println("eros-revan:1.0.0")
         def android = project.extensions.getByType(AppExtension)
         def transform = new WXSDKTransform(project)
         android.registerTransform(transform)
-        System.out.println("-----------------carry plugin finish----------------")
     }
 }

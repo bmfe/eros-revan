@@ -47,7 +47,7 @@ public class WXSDKTransform extends Transform {
                    Collection<TransformInput> referencedInputs,
                    TransformOutputProvider outputProvider, boolean isIncremental)
             throws IOException, TransformException, InterruptedException {
-        System.out.println("-----------------start transform----------------")
+        System.out.println("start transform,current plugin verion:1.0.0-beta")
         def startTime = System.currentTimeMillis();
         // Transform的inputs有两种类型，一种是目录，一种是jar包，要分开遍历
         inputs.each { TransformInput input ->

@@ -25,10 +25,10 @@ uploadArchives {
                 authentication(userName: 'admin', password: 'admin123')
             }
             pom.project {
-                artifactId 'eros-gateway'//与下方一致
-                groupId 'eros.gateway'
+                artifactId 'eros-raven'//与下方一致
+                groupId 'com.benmu.eros'
                 description 'test upload'
-                version='0.0.59'
+                version='0.0.72'
                 url 'https://github.com/xianlinbox/Toggle'
             }
         }
@@ -40,7 +40,7 @@ publish {
     repoName='ErosApi'
     groupId = 'com.benmu.eros'
     artifactId = 'eros-raven'
-    publishVersion = '0.0.2'
+    publishVersion = '1.0.0-beta'
     desc = 'gradle plugin for transfer WeexSDK'
     website = 'https://github.com/bmfe/eros-plugin-android-amap'
 }

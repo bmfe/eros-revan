@@ -9,15 +9,12 @@ class JsCallbackTransfer {
     public static String TARGET_SUPERCLASS = "java.io.Serializable"
 
     void transfer(ClassPool classPool, String path) {
-        System.out.println("--------JsCallbackTransfer----------");
         CtClass ctClass = classPool.getCtClass(CLASS_NAME);
         BaseUtils.defrost(ctClass);
         try {
             CtClass[] interfaces = ctClass.getInterfaces()
-            System.out.println("--------JsCallbackTransfer----------有接口")
             int index = 0;
             for (CtClass inter : interfaces) {
-                System.out.println("--------JsCallbackTransfer----------" + inter.getName())
                 if (TARGET_SUPERCLASS.equals(inter.getName())) {
                    index++
                 }
